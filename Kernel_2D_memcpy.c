@@ -4,61 +4,60 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define kernel_2d_memcpy 449
+#define SYS_kernel_2D_memcpy 451
 
 int main() {
-    float matrix[4][3] = {{4.3,2.5,6.2},
-                       {3.3,2.8,1.1},
-                       {4.7,6.5,3.0},
-                       {4.9,8.1,7.4}};
-    //float MAT2[4][3] = {{1.0,1.0,1.0},{1.0,1.0,1.0},{1.0,1.0,1.0},{1.0,1.0,1.0}};
+    float Matrix_A[4][4] = {{1.3,3.5,8.2,2.0},
+                            {1.6,4.9,0.6,5.4},
+                            {5.0,2.2,7.4,4.1},
+                            {7.0,6.1,6.9,8.9}};
 
-    printf("The input Matrix is:\n");
+    float Matrix_B[4][4] = {{9.9,9.9,9.9,9.9},
+                            {9.9,9.9,9.9,9.9},
+                            {9.9,9.9,9.9,9.9},
+                            {9.9,9.9,9.9,9.9}};
+
+    printf("-------Matrix A before syscall----------:\n");
 
     for (int x = 0; x < 4; x++){
-        for (int y = 0; y < 3; y++){
-            printf("%lf ", matrix[x][y]);
+        for (int y = 0; y < 4; y++){
+            printf("%lf ", Matrix_A[x][y]);
             }
         printf("\n");
     }
-    printf("\n");
 
-    // printf("This is the initial matrix2 is:\n");
+    printf("-------Matrix B before syscall----------:\n");
 
-    // for (int x = 0; x < 4; x++){
-    //     for (int y = 0; y < 3; y++){
-    //         printf("%lf ", MAT2[x][y]);
-    //         }
-    //     printf("\n");
-    // }
-    // printf("\n");
+    for (int x = 0; x < 4; x++){
+        for (int y = 0; y < 4; y++){
+            printf("%lf ", Matrix_B[x][y]);
+            }
+        printf("\n");
+    }
 
-    int Result = syscall(kernel_2d_memcpy, matrix,4, 3);
+    int RESULT = syscall(SYS_kernel_2D_memcpy, Matrix_A, Matrix_B, 4, 4);
 
-    if(Result < 0){
-        printf("ERROR! Could not perform system call.");
+    if(RESULT < 0){
+        printf("ERROR! in performing the SYSTEM CALL.");
         exit(1);
     }
 
-    printf("The Matrix after syscall 'kernel_2d_memcpy':\n");
+    printf("-------Matrix A after syscall----------:\n");
 
     for (int x = 0; x < 4; x++){
-        for (int y = 0; y < 3; y++){
-            printf("%lf ", matrix[x][y]);
+        for (int y = 0; y < 4; y++){
+            printf("%lf ", Matrix_A[x][y]);
             }
         printf("\n");
     }
-    printf("\n");
 
-    // printf("This is the final matrix2 is:\n");
+    printf("-------Matrix B after syscall----------:\n");
 
-    // for (int x = 0; x < 4; x++){
-    //     for (int y = 0; y < 3; y++){
-    //         printf("%lf ", MAT2[x][y]);
-    //         }
-    //     printf("\n");
-    // }
-    // printf("\n");
-
+    for (int x = 0; x < 4; x++){
+        for (int y = 0; y < 4; y++){
+            printf("%lf ", Matrix_B[x][y]);
+            }
+        printf("\n");
+    }
     return 0;
 }
