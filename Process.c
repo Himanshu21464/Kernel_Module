@@ -17,7 +17,7 @@ void PROCESS_A(){
     if(pid1==-1){
         printf("Unable to create child process!!!\n");
     }else if(pid1==0){
-        execl("make","all",NULL);
+        execlp("make","make",NULL);
     }waitpid(pid1,&status,0);
     end=clock();
     cpu_time_used=(double)(end-start);
