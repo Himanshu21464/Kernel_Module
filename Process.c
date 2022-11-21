@@ -21,10 +21,10 @@ void PROCESS_A(){
     }waitpid(pid1,&status,0);
     end=clock();
     cpu_time_used=(double)(end-start);
-    printf("Time taken by (process A) to compile the LINUX kernel source: %f\n",cpu_time_used);
+    printf("Time taken by (process A) to compile the LINUX kernel source: %f\n\n\n",cpu_time_used);
 
 } 
-/*
+
 void PROCESS_B(){
     clock_t start,end;
     double cpu_time_used;
@@ -37,7 +37,7 @@ void PROCESS_B(){
     }waitpid(pid2,&status,0);
     end=clock();
     cpu_time_used=(double)(end-start);
-    printf("Time taken by (process B)to compile the LINUX kernel source: %f\n",cpu_time_used);
+    printf("Time taken by (process B)to compile the LINUX kernel source: %f\n\n\n",cpu_time_used);
 } 
 
 void PROCESS_C(){
@@ -53,17 +53,17 @@ void PROCESS_C(){
     }waitpid(pid3,&status,0);
     end=clock();
     cpu_time_used=(double)(end-start);
-    printf("Time taken by (process C) to compile the LINUX kernel source: %f\n",cpu_time_used);
+    printf("Time taken by (process C) to compile the LINUX kernel source: %f\n\n\n",cpu_time_used);
     
 } 
 
-*/
+
 int main(){
 
     printf("--------Program starts here------------\n");   
     PROCESS_A(); 
-    //PROCESS_B();        
-    //PROCESS_C();
+    PROCESS_B();        
+    PROCESS_C();
     printf("------ --Program ends here-------------\n");
     
 
