@@ -17,15 +17,14 @@ void PROCESS_A(){
     if(pid1==-1){
         printf("Unable to create child process!!!\n");
     }else if(pid1==0){
-        execl("make modules","make modules",NULL);
-        execl("make clean","make clean",NULL);
+        execl("make","all",NULL);
     }waitpid(pid1,&status,0);
     end=clock();
     cpu_time_used=(double)(end-start);
     printf("Time taken by (process A) to compile the LINUX kernel source: %f\n",cpu_time_used);
 
 } 
-
+/*
 void PROCESS_B(){
     clock_t start,end;
     double cpu_time_used;
@@ -34,8 +33,7 @@ void PROCESS_B(){
     if(pid2==-1){
         printf("Unable to create child process!!!\n");
     }else if(pid2==0){
-        execl("make modules","make modules",NULL);
-        execl("make clean","make clean",NULL);
+        execlp("make","make",NULL);
     }waitpid(pid2,&status,0);
     end=clock();
     cpu_time_used=(double)(end-start);
@@ -50,20 +48,22 @@ void PROCESS_C(){
     if(pid3==-1){
         printf("Unable to create child process!!!\n");
     }else if(pid3==0){
-        execl("make modules","make modules",NULL);
-        execl("make clean","make clean",NULL);
+        execlp("make","make",NULL);
+    
     }waitpid(pid3,&status,0);
     end=clock();
     cpu_time_used=(double)(end-start);
     printf("Time taken by (process C) to compile the LINUX kernel source: %f\n",cpu_time_used);
     
 } 
+
+*/
 int main(){
 
     printf("--------Program starts here------------\n");   
     PROCESS_A(); 
-    PROCESS_B();        
-    PROCESS_C();
+    //PROCESS_B();        
+    //PROCESS_C();
     printf("------ --Program ends here-------------\n");
     
 
