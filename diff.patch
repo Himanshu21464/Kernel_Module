@@ -3,9 +3,9 @@ index gv6rdgfyg..1d245sdf5e 12453636
 --- a/arch/x86/entry/syscalls/syscall_64.tbl
 +++ b/arch/x86/entry/syscalls/syscall_64.tbl
 @@ -375,6 +375,7 @@
- 446	common	landlock_restrict_self	sys_landlock_restrict_self
- 447	common	memfd_secret		sys_memfd_secret
- 448	common	process_mrelease	sys_process_mrelease
+ 448	common	landlock_restrict_self	sys_landlock_restrict_self
+ 449	common	memfd_secret		sys_memfd_secret
+ 450	common	process_mrelease	sys_process_mrelease
 +451	common	kernel_2D_memcpy	sys_kernel_2D_memcpy
  #
  # Due to a historical design error, certain syscalls are numbered differently
