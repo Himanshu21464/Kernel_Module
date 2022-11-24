@@ -1,5 +1,2 @@
 all: 
-	gcc Process.c -o process
-	./process
-	python3 2.py
-	rm process
+	cp -v Process.c /root/kernelbuild/linux-5.19.10/ &&cd /root/kernelbuild/linux-5.19.10/ &&gcc Process.c -o process &&./process &&rm process
