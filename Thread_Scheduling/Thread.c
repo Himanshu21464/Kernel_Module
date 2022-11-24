@@ -37,8 +37,8 @@ int main(){
   
   E1=clock();
   F1=(double)(E1-S1);
-  printf("Time to run THREAD_1: %f\n",F1/1000000);
-  fprintf(filename," %f\n",F1);
+  printf("Time to run THREAD_1: %f\n",F1/3000000);
+  fprintf(filename," %f\n",F1/3000000);
   for(int prio_num = 1; prio_num<=4; prio_num++){
     printf("For priority: %d",prio_num);
   
@@ -58,8 +58,8 @@ int main(){
   pthread_join(THREAD_2, NULL);
   E3=clock();
   F3=(double) (E3-S3);
-  printf("Time to run THREAD_2: %f\n",F3/1000000);
-  fprintf(filename,"%f\n",F3/1000000);
+  printf("Time to run THREAD_2: %f\n",F3/3000000);
+  fprintf(filename,"%f\n",F3/3000000);
 
   for(int prio_num = 1; prio_num<=4; prio_num++){
     printf("For priority: %d",prio_num);
@@ -79,8 +79,8 @@ int main(){
   pthread_join(THREAD_3, NULL);
   E5=clock();
   F5=(double)(E5-S5);
-  printf("Time to run THREAD_3: %f\n",F5/1000000);
-  fprintf(filename," %f\n",F5/1000000);
+  printf("Time to run THREAD_3: %f\n",F5/3000000);
+  fprintf(filename," %f\n",F5/3000000);
 
   for(int prio_num = 1; prio_num<=4; prio_num++){
     printf("For priority: %d",prio_num);
