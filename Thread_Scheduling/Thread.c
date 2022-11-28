@@ -96,4 +96,5 @@ int main(){
     fprintf(filename,"%f\n",F6/1000000); 
   }
   fclose(filename);
-	exit(0);
+  exit(0);
+}
