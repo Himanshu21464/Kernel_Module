@@ -1,4 +1,4 @@
-# OS_Assignment_2
+# Kernel Module and Thread Scheduling
 
 -----------------------------------README FILE FOR THREAD SCHEDULING-------------------------------------------
 
